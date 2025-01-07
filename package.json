@@ -1,0 +1,21 @@
+{
+  "name": "@docs/n8n",
+  "version": "0.1.0",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "mintlify": "^4.0.310"
+  },
+  "engines": {
+    "node": ">=20 <21"
+  },
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .turbo && rm -rf .next && rm -rf node_modules",
+    "dev": "mintlify dev --port 3004",
+    "lint:broken-links": "mintlify broken-links",
+    "lint:openapi": "mintlify openapi-check api-reference/openapi.json",
+    "lint": "concurrently \"pnpm:lint:broken-links\" \"pnpm:lint:openapi\"",
+    "mintlify": "mintlify"
+  }
+}
